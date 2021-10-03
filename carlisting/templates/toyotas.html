@@ -1,0 +1,21 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+
+<h4>Here is a list of all the Toyota cars that we have.</h4>
+  <div class="card sm-3">
+    <div class="card-body">
+      {% if toyotas %}
+      <ul>
+        {% for toyota in toyotas %}
+          <li><p class="lead">{{ toyota.car_type }}</p></li>
+        {% endfor %}
+      </ul>
+      {% else %}
+        <p class="lead">There is no toyota car</p>
+      {% endif %}
+    </div>
+  </div>
+  
+
+{% endblock %}

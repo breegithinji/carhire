@@ -1,0 +1,28 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+    <!-- <h1>Kanairo Car Hire Home</h1> -->
+
+    <p>Welcome to Kanairo Car Hire LTD. Yoru home of quality and safe vehicles for hire</p>
+    <p><strong>Our car listings at a Glance</strong></p>
+
+    <ul>
+        <li><strong>Listed Vehicles:</strong> {{ cars_count }} </li>
+        <li><strong>Available Cars:</strong> {{ num_cars_available }} </li>
+        <!-- <li><strong>Toyota Cars Listed:</strong> {{ num_toyota }}</li> -->
+
+        {% include "index_carousel.html" %}
+
+        {% for image in images %}
+        <div class="carousel-item">
+            <img src="{{image.car_img.url}}" alt="...">
+            <div class="carousel-caption  d-md-block">
+                <h5>{{image.car}}</h5>
+                <!-- <p>...</p> -->
+            </div>
+        </div>
+        {% endfor %}
+    </ul>
+    <p>You have visited this page {{ number_of_visits }} time{{ number_of_visits|pluralize }}.</p>
+    <p><a href="{% url 'logout' %}">log out</a></p>
+{% endblock %}

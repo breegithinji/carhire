@@ -1,0 +1,26 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+
+<h4>Here is a list of all the cars that we have. Click on a car to see more details about it. Click on an owner to see al the cars they have listed</h4>
+  <div class="card mb-3">
+      <table class="table table-light table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th>Car</th>
+            <th>Owner</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for car in cars %}
+          <tr>
+            <td>{{ car }} <a href="{% url 'cardetails' car.id %}" class="btn btn-primary">View</a></td>
+            <td>{{ car.car_owner }} </td>
+            {% endfor %}
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  
+
+{% endblock %}
